@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+table, th, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+.cell {
+  width:80px;
+  height:80px;
+  background: #FFFFFF;
+  font-size: 46pt;
+  font-family: arial;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+
+}
+</style>
 <SCRIPT TYPE="TEXT/JAVASCRIPT">
 // Global Varibles
 var xTurn = true;
@@ -14,27 +31,27 @@ function makeOmove()
     var val1;
     var val2;
     var val3;
-    
+
     if(gameOver)
     {
         return;
     }
 
-    ///////////////////////////////////////////////////////////////////////////    
-    // 
+    ///////////////////////////////////////////////////////////////////////////
+    //
     //               OFFENSE IMPLEMENTATION
     //
-    ///////////////////////////////////////////////////////////////////////////    
+    ///////////////////////////////////////////////////////////////////////////
 
-    
+
     // [ ]
     // [O]
     // [O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value; 
-        val1 = document.getElementById('1_' + y).value; 
-        val2 = document.getElementById('2_' + y).value; 
+        val0 = document.getElementById('0_' + y).value;
+        val1 = document.getElementById('1_' + y).value;
+        val2 = document.getElementById('2_' + y).value;
         if(val0 == '  ' && val1 == 'O' && val2 == 'O')
         {
             numMoves++;
@@ -44,7 +61,7 @@ function makeOmove()
             document.getElementById('0_' + y).value = 'O'; // set this square to 'O'
             return;
         }
-    } 
+    }
 
 
     // [O]
@@ -52,44 +69,44 @@ function makeOmove()
     // [O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value; 
-        val1 = document.getElementById('1_' + y).value; 
-        val2 = document.getElementById('2_' + y).value; 
-        if(val0 == 'O' && val1 == '  ' && val2 == 'O') 
+        val0 = document.getElementById('0_' + y).value;
+        val1 = document.getElementById('1_' + y).value;
+        val2 = document.getElementById('2_' + y).value;
+        if(val0 == 'O' && val1 == '  ' && val2 == 'O')
         {
             numMoves++;
-            xTurn = true; 
-            status.innerHTML = "X\'s turn"; 
+            xTurn = true;
+            status.innerHTML = "X\'s turn";
             document.getElementById('1_' + y).value = 'O'; // set this square to 'O'
-            return; 
+            return;
         }
-    } 
+    }
 
     // [O]
     // [O]
     // [ ]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value; 
-        val1 = document.getElementById('1_' + y).value; 
-        val2 = document.getElementById('2_' + y).value; 
-        if(val0 == 'O' && val1 == 'O' && val2 == '  ') 
+        val0 = document.getElementById('0_' + y).value;
+        val1 = document.getElementById('1_' + y).value;
+        val2 = document.getElementById('2_' + y).value;
+        if(val0 == 'O' && val1 == 'O' && val2 == '  ')
         {
-            numMoves++; 
-            xTurn = true; 
-            status.innerHTML = "X\'s turn"; 
+            numMoves++;
+            xTurn = true;
+            status.innerHTML = "X\'s turn";
             document.getElementById('2_' + y).value = 'O'; // set this square to 'O'
             return;
         }
-    } 
+    }
 
     // [ ][O][O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value; 
-        val1 = document.getElementById(y + '_1').value; 
-        val2 = document.getElementById(y + '_2').value; 
-        if(val0 == '  ' && val1 == 'O' && val2 == 'O') 
+        val0 = document.getElementById(y + '_0').value;
+        val1 = document.getElementById(y + '_1').value;
+        val2 = document.getElementById(y + '_2').value;
+        if(val0 == '  ' && val1 == 'O' && val2 == 'O')
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
@@ -99,7 +116,7 @@ function makeOmove()
             document.getElementById(y + '_0').value = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
-    } 
+    }
 
 
     // [O][ ][O]
@@ -118,14 +135,14 @@ function makeOmove()
             document.getElementById(y + '_1').value = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
-    } 
+    }
 
     // [O][O][ ]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value; 
-        val1 = document.getElementById(y + '_1').value; 
-        val2 = document.getElementById(y + '_2').value; 
+        val0 = document.getElementById(y + '_0').value;
+        val1 = document.getElementById(y + '_1').value;
+        val2 = document.getElementById(y + '_2').value;
         if(val0 == 'O' && val1 == 'O' && val2 == '  ') // check if they are two O and an empty square
         {
             numMoves = numMoves + 1; // add 1 to numMoves
@@ -136,7 +153,7 @@ function makeOmove()
             document.getElementById(y + '_2').value = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
-    } 
+    }
 
 
 
@@ -161,7 +178,7 @@ function makeOmove()
     // [ ][ ][O]
     // [ ][O][ ]
     // [ ][ ][ ]
-    val0 = document.getElementById('0_2').value; 
+    val0 = document.getElementById('0_2').value;
     val1 = document.getElementById('1_1').value; // 2nd square of a column
     val2 = document.getElementById('2_0').value; // 3rd square of a column
     if(val0 == 'O' && val1 == 'O' && val2 == '  ') // check if all are 'X'
@@ -174,17 +191,17 @@ function makeOmove()
         document.getElementById('2_0').value = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
-     
+
 
 
 
     // [ ][ ][ ]
     // [ ][O][ ]
     // [ ][ ][O]
-    val0 = document.getElementById('0_0').value; 
-    val1 = document.getElementById('1_1').value; 
-    val2 = document.getElementById('2_2').value; 
-    if(val0 == '  ' && val1 == 'O' && val2 == 'O') 
+    val0 = document.getElementById('0_0').value;
+    val1 = document.getElementById('1_1').value;
+    val2 = document.getElementById('2_2').value;
+    if(val0 == '  ' && val1 == 'O' && val2 == 'O')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                  // ex: if numMoves = 5 then after this execution
@@ -194,15 +211,15 @@ function makeOmove()
         document.getElementById('0_0').value = 'O'; // set this square to 'O'
         return true; // return true to the caller
      }
-     
+
 
     // [O][ ][ ]
     // [ ][O][ ]
-    // [ ][ ][ ]   
-    val0 = document.getElementById('0_0').value; 
-    val1 = document.getElementById('1_1').value; 
-    val2 = document.getElementById('2_2').value; 
-    if(val0 == 'O' && val1 == 'O' && val2 == '  ') 
+    // [ ][ ][ ]
+    val0 = document.getElementById('0_0').value;
+    val1 = document.getElementById('1_1').value;
+    val2 = document.getElementById('2_2').value;
+    if(val0 == 'O' && val1 == 'O' && val2 == '  ')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                  // ex: if numMoves = 5 then after this execution
@@ -212,14 +229,14 @@ function makeOmove()
         document.getElementById('2_2').value = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
-     
 
 
-    ///////////////////////////////////////////////////////////////////////////    
-    // 
+
+    ///////////////////////////////////////////////////////////////////////////
+    //
     //               DEFEND
     //
-    ///////////////////////////////////////////////////////////////////////////    
+    ///////////////////////////////////////////////////////////////////////////
 
 
     // [ ]
@@ -240,7 +257,7 @@ function makeOmove()
             document.getElementById('0_' + y).value = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
-    } 
+    }
 
     // [X]
     // [ ]
@@ -260,7 +277,7 @@ function makeOmove()
             document.getElementById('1_' + y).value = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
-    }   
+    }
 
     // [X]
     // [X]
@@ -280,9 +297,9 @@ function makeOmove()
             document.getElementById('2_' + y).value = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
-    }   
-    
- 
+    }
+
+
     //[ ][X][X]
     for(var y = 0; y < 3; y++)
     {
@@ -354,7 +371,7 @@ function makeOmove()
         document.getElementById('0_0').value = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
-    
+
 
     // [X][-][-]
     // [-][X][-]
@@ -372,7 +389,7 @@ function makeOmove()
         document.getElementById('2_2').value = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
-    
+
 
     // [-][-][ ]
     // [-][X][-]
@@ -390,7 +407,7 @@ function makeOmove()
         document.getElementById('0_2').value = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
-    
+
 
     // [-][-][X]
     // [-][X][-]
@@ -409,17 +426,17 @@ function makeOmove()
         return true; // return true to the caller
     }
 
-    ///////////////////////////////////////////////////////////////////////////    
+    ///////////////////////////////////////////////////////////////////////////
     //
     // SPECIAL CASES
     // these are special cases
     //
-    ///////////////////////////////////////////////////////////////////////////    
+    ///////////////////////////////////////////////////////////////////////////
 
     // [-][-][X]
     // [ ][O][-]
     // [X][-][-]
-    val0 = document.getElementById('1_1').value; 
+    val0 = document.getElementById('1_1').value;
     val1 = document.getElementById('0_2').value;
     val2 = document.getElementById('2_0').value;
     val3 = document.getElementById('0_1').value;
@@ -438,7 +455,7 @@ function makeOmove()
     // [X][-][-]
     // [-][O][X]
     // [-][-][-]
-    val0 = document.getElementById('0_0').value; 
+    val0 = document.getElementById('0_0').value;
     val1 = document.getElementById('1_1').value;
     val2 = document.getElementById('1_2').value;
     val3 = document.getElementById('0_2').value;
@@ -457,7 +474,7 @@ function makeOmove()
     // [-][-][-]
     // [-][O][X]
     // [X][-][ ]
-    val0 = document.getElementById('2_0').value; 
+    val0 = document.getElementById('2_0').value;
     val1 = document.getElementById('1_1').value;
     val2 = document.getElementById('1_2').value;
     val3 = document.getElementById('2_2').value;
@@ -476,7 +493,7 @@ function makeOmove()
     // [-][-][-]
     // [-][O][X]
     // [-][X][ ]
-    val0 = document.getElementById('2_1').value; 
+    val0 = document.getElementById('2_1').value;
     val1 = document.getElementById('1_1').value;
     val2 = document.getElementById('1_2').value;
     val3 = document.getElementById('2_2').value;
@@ -495,7 +512,7 @@ function makeOmove()
     // [-][O][-]
     // [ ][X][-]
     val0 = document.getElementById('0_2').value;
-    val1 = document.getElementById('1_1').value;  
+    val1 = document.getElementById('1_1').value;
     val2 = document.getElementById('2_1').value;
     val3 = document.getElementById('2_0').value;
     if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '  ')
@@ -513,10 +530,10 @@ function makeOmove()
     // [O][-][ ]
     // [-][X][-]
     // [-][-][X]
-    val0 = document.getElementById('0_0').value; 
-    val1 = document.getElementById('1_1').value; 
+    val0 = document.getElementById('0_0').value;
+    val1 = document.getElementById('1_1').value;
     val2 = document.getElementById('2_2').value;
-    val3 = document.getElementById('0_2').value;  
+    val3 = document.getElementById('0_2').value;
     if(val0 == 'O' && val1 == 'X' && val2 == 'X' && val3 == '  ')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
@@ -528,14 +545,14 @@ function makeOmove()
         return true; // return true to the caller
     }
 
-      
 
-    ///////////////////////////////////////////////////////////////////////////    
+
+    ///////////////////////////////////////////////////////////////////////////
     //
     // INITIAL CASE
     // if the player didn't go in the middle then go to the middle
     //
-    ///////////////////////////////////////////////////////////////////////////    
+    ///////////////////////////////////////////////////////////////////////////
 
     val0 = document.getElementById('1_1').value;
     if(val0 == '  ') // check if all are 'X'
@@ -549,12 +566,12 @@ function makeOmove()
         return true; // return true to the caller
     }
 
-   
-    ///////////////////////////////////////////////////////////////////////////    
+
+    ///////////////////////////////////////////////////////////////////////////
     //
     // DUMB MOVES
     //
-    ///////////////////////////////////////////////////////////////////////////    
+    ///////////////////////////////////////////////////////////////////////////
 
     // iterate column
     for(var y = 0; y < 3; y++)
@@ -577,8 +594,8 @@ function makeOmove()
         }
     }
 
-  
- 
+
+
 }
 
 function checkWin()
@@ -698,24 +715,24 @@ function newgame()
 function squareclicked(square) // square is a button object
 // squareclicked is a function that is called whenever a button is clicked.
 {
-    if(gameOver) //  check global varible if the game is over 
+    if(gameOver) //  check global varible if the game is over
     {
         alert("The game is already over.");
         return;
     }
-    
+
     var status = document.getElementById('status');  // get the status object
     var value = square.value; // get the current square's value
-    if(value != 'X' && value != 'O') // check if the current square does not 
+    if(value != 'X' && value != 'O') // check if the current square does not
                                      // have 'X' or 'O'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                 // ex: if numMoves = 5 then after this execution
                                 // numMoves will become 6
-            
+
         // main ////////////////////////
         square.value = 'X'; // set this square to 'X'
-            
+
         checkWin(); // call checkWin to see if X wins or tie
 
         // computer will make the move for 'O'
@@ -725,7 +742,7 @@ function squareclicked(square) // square is a button object
     }
     else
     {
-        alert('That square has already been played.'); // pop up a window to 
+        alert('That square has already been played.'); // pop up a window to
                                    // notify that the square has been played
     }
 
@@ -737,41 +754,41 @@ function squareclicked(square) // square is a button object
 <body>
 <h1>Tic-Tac-Toe</h1>
 <p>Welcome...</p>
-<p>This is Trevor the computer
+<p>This is Trevor the computer (SPOILERS HE IMPOSSIBLE TO BEAT!)
 <BR>
 <INPUT TYPE="BUTTON" ID="NEWGAME" VALUE="New Game" ONCLICK="newgame();">
 <p>
-<table border="1" style="background-color:#FFD16A;">
+<table>
 <tr>
-<td width="22">
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="0_0" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
-<td width="22">
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="0_1" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
-</td> 
-<td width="22">
+</td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="0_2" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
 </tr>
 <tr>
-<td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="1_0" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
-<td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="1_1" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
-<td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="1_2" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
 </tr>
 <tr>
-<td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="2_0" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
-<td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="2_1" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
-<td>
+<td class="cell">
 <INPUT TYPE="BUTTON" ID="2_2" VALUE="  " ONCLICK="squareclicked(this);" style='background:transparent; border:0;'>
 </td>
 </tr>
@@ -787,7 +804,7 @@ function squareclicked(square) // square is a button object
 </td>
 <td width="22">
 0_1
-</td> 
+</td>
 <td width="22">
 0_2
 </td>
@@ -815,8 +832,6 @@ function squareclicked(square) // square is a button object
 </td>
 </tr>
 </table>
-</p> 
+</p>
 </body>
 </html>
-
-

@@ -29,16 +29,16 @@ function makeOmove()
     // [O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value;
-        val1 = document.getElementById('1_' + y).value;
-        val2 = document.getElementById('2_' + y).value;
-        if(val0 == '  ' && val1 == 'O' && val2 == 'O')
+        val0 = document.getElementById('0_' + y).innerHTML;
+        val1 = document.getElementById('1_' + y).innerHTML;
+        val2 = document.getElementById('2_' + y).innerHTML;
+        if(val0 == '&nbsp;' && val1 == 'O' && val2 == 'O')
         {
             numMoves++;
             xTurn = true;
             status.innerHTML = "X\'s turn";
 
-            document.getElementById('0_' + y).value = 'O'; // set this square to 'O'
+            document.getElementById('0_' + y).innerHTML = 'O'; // set this square to 'O'
             return;
         }
     }
@@ -49,15 +49,15 @@ function makeOmove()
     // [O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value;
-        val1 = document.getElementById('1_' + y).value;
-        val2 = document.getElementById('2_' + y).value;
-        if(val0 == 'O' && val1 == '  ' && val2 == 'O')
+        val0 = document.getElementById('0_' + y).innerHTML;
+        val1 = document.getElementById('1_' + y).innerHTML;
+        val2 = document.getElementById('2_' + y).innerHTML;
+        if(val0 == 'O' && val1 == '&nbsp;' && val2 == 'O')
         {
             numMoves++;
             xTurn = true;
             status.innerHTML = "X\'s turn";
-            document.getElementById('1_' + y).value = 'O'; // set this square to 'O'
+            document.getElementById('1_' + y).innerHTML = 'O'; // set this square to 'O'
             return;
         }
     }
@@ -67,15 +67,15 @@ function makeOmove()
     // [ ]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value;
-        val1 = document.getElementById('1_' + y).value;
-        val2 = document.getElementById('2_' + y).value;
-        if(val0 == 'O' && val1 == 'O' && val2 == '  ')
+        val0 = document.getElementById('0_' + y).innerHTML;
+        val1 = document.getElementById('1_' + y).innerHTML;
+        val2 = document.getElementById('2_' + y).innerHTML;
+        if(val0 == 'O' && val1 == 'O' && val2 == '&nbsp;')
         {
             numMoves++;
             xTurn = true;
             status.innerHTML = "X\'s turn";
-            document.getElementById('2_' + y).value = 'O'; // set this square to 'O'
+            document.getElementById('2_' + y).innerHTML = 'O'; // set this square to 'O'
             return;
         }
     }
@@ -83,17 +83,17 @@ function makeOmove()
     // [ ][O][O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value;
-        val1 = document.getElementById(y + '_1').value;
-        val2 = document.getElementById(y + '_2').value;
-        if(val0 == '  ' && val1 == 'O' && val2 == 'O')
+        val0 = document.getElementById(y + '_0').innerHTML;
+        val1 = document.getElementById(y + '_1').innerHTML;
+        val2 = document.getElementById(y + '_2').innerHTML;
+        if(val0 == '&nbsp;' && val1 == 'O' && val2 == 'O')
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById(y + '_0').value = 'O'; // set this square to 'O'
+            document.getElementById(y + '_0').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -102,17 +102,17 @@ function makeOmove()
     // [O][ ][O]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value; // 1st square of a column
-        val1 = document.getElementById(y + '_1').value; // 2nd square of a column
-        val2 = document.getElementById(y + '_2').value; // 3rd square of a column
-        if(val0 == 'O' && val1 == '  ' && val2 == 'O') // check if all are 'X'
+        val0 = document.getElementById(y + '_0').innerHTML; // 1st square of a column
+        val1 = document.getElementById(y + '_1').innerHTML; // 2nd square of a column
+        val2 = document.getElementById(y + '_2').innerHTML; // 3rd square of a column
+        if(val0 == 'O' && val1 == '&nbsp;' && val2 == 'O') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById(y + '_1').value = 'O'; // set this square to 'O'
+            document.getElementById(y + '_1').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -120,17 +120,17 @@ function makeOmove()
     // [O][O][ ]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value;
-        val1 = document.getElementById(y + '_1').value;
-        val2 = document.getElementById(y + '_2').value;
-        if(val0 == 'O' && val1 == 'O' && val2 == '  ') // check if they are two O and an empty square
+        val0 = document.getElementById(y + '_0').innerHTML;
+        val1 = document.getElementById(y + '_1').innerHTML;
+        val2 = document.getElementById(y + '_2').innerHTML;
+        if(val0 == 'O' && val1 == 'O' && val2 == '&nbsp;') // check if they are two O and an empty square
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById(y + '_2').value = 'O'; // set this square to 'O'
+            document.getElementById(y + '_2').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -140,17 +140,17 @@ function makeOmove()
     // [ ][ ][ ]
     // [ ][O][ ]
     // [O][ ][ ]
-    val0 = document.getElementById('2_0').value; // 1st square of a column
-    val1 = document.getElementById('1_1').value; // 2nd square of a column
-    val2 = document.getElementById('0_2').value; // 3rd square of a column
-    if(val0 == 'O' && val1 == 'O' && val2 == '  ') // check if all are 'X'
+    val0 = document.getElementById('2_0').innerHTML; // 1st square of a column
+    val1 = document.getElementById('1_1').innerHTML; // 2nd square of a column
+    val2 = document.getElementById('0_2').innerHTML; // 3rd square of a column
+    if(val0 == 'O' && val1 == 'O' && val2 == '&nbsp;') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                  // ex: if numMoves = 5 then after this execution
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_2').value = 'O'; // set this square to 'O'
+        document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
         }
 
@@ -158,17 +158,17 @@ function makeOmove()
     // [ ][ ][O]
     // [ ][O][ ]
     // [ ][ ][ ]
-    val0 = document.getElementById('0_2').value;
-    val1 = document.getElementById('1_1').value; // 2nd square of a column
-    val2 = document.getElementById('2_0').value; // 3rd square of a column
-    if(val0 == 'O' && val1 == 'O' && val2 == '  ') // check if all are 'X'
+    val0 = document.getElementById('0_2').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML; // 2nd square of a column
+    val2 = document.getElementById('2_0').innerHTML; // 3rd square of a column
+    if(val0 == 'O' && val1 == 'O' && val2 == '&nbsp;') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                  // ex: if numMoves = 5 then after this execution
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_0').value = 'O'; // set this square to 'O'
+        document.getElementById('2_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -178,17 +178,17 @@ function makeOmove()
     // [ ][ ][ ]
     // [ ][O][ ]
     // [ ][ ][O]
-    val0 = document.getElementById('0_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('2_2').value;
-    if(val0 == '  ' && val1 == 'O' && val2 == 'O')
+    val0 = document.getElementById('0_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('2_2').innerHTML;
+    if(val0 == '&nbsp;' && val1 == 'O' && val2 == 'O')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                  // ex: if numMoves = 5 then after this execution
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_0').value = 'O'; // set this square to 'O'
+        document.getElementById('0_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
      }
 
@@ -196,17 +196,17 @@ function makeOmove()
     // [O][ ][ ]
     // [ ][O][ ]
     // [ ][ ][ ]
-    val0 = document.getElementById('0_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('2_2').value;
-    if(val0 == 'O' && val1 == 'O' && val2 == '  ')
+    val0 = document.getElementById('0_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('2_2').innerHTML;
+    if(val0 == 'O' && val1 == 'O' && val2 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                  // ex: if numMoves = 5 then after this execution
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_2').value = 'O'; // set this square to 'O'
+        document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -224,17 +224,17 @@ function makeOmove()
     // [X]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value; // 1st square of a column
-        val1 = document.getElementById('1_' + y).value; // 2nd square of a column
-        val2 = document.getElementById('2_' + y).value; // 3rd square of a column
-        if(val0 == '  ' && val1 == 'X' && val2 == 'X') // check if all are 'X'
+        val0 = document.getElementById('0_' + y).innerHTML; // 1st square of a column
+        val1 = document.getElementById('1_' + y).innerHTML; // 2nd square of a column
+        val2 = document.getElementById('2_' + y).innerHTML; // 3rd square of a column
+        if(val0 == '&nbsp;' && val1 == 'X' && val2 == 'X') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById('0_' + y).value = 'O'; // set this square to 'O'
+            document.getElementById('0_' + y).innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -244,17 +244,17 @@ function makeOmove()
     // [X]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value; // 1st square of a column
-        val1 = document.getElementById('1_' + y).value; // 2nd square of a column
-        val2 = document.getElementById('2_' + y).value; // 3rd square of a column
-        if(val0 == 'X' && val1 == '  ' && val2 == 'X') // check if all are 'X'
+        val0 = document.getElementById('0_' + y).innerHTML; // 1st square of a column
+        val1 = document.getElementById('1_' + y).innerHTML; // 2nd square of a column
+        val2 = document.getElementById('2_' + y).innerHTML; // 3rd square of a column
+        if(val0 == 'X' && val1 == '&nbsp;' && val2 == 'X') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById('1_' + y).value = 'O'; // set this square to 'O'
+            document.getElementById('1_' + y).innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -264,17 +264,17 @@ function makeOmove()
     // [ ]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_' + y).value; // 1st square of a column
-        val1 = document.getElementById('1_' + y).value; // 2nd square of a column
-        val2 = document.getElementById('2_' + y).value; // 3rd square of a column
-        if(val0 == 'X' && val1 == 'X' && val2 == '  ') // check if all are 'X'
+        val0 = document.getElementById('0_' + y).innerHTML; // 1st square of a column
+        val1 = document.getElementById('1_' + y).innerHTML; // 2nd square of a column
+        val2 = document.getElementById('2_' + y).innerHTML; // 3rd square of a column
+        if(val0 == 'X' && val1 == 'X' && val2 == '&nbsp;') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById('2_' + y).value = 'O'; // set this square to 'O'
+            document.getElementById('2_' + y).innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -283,17 +283,17 @@ function makeOmove()
     //[ ][X][X]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value; // 1st square of a column
-        val1 = document.getElementById(y + '_1').value; // 2nd square of a column
-        val2 = document.getElementById(y + '_2').value; // 3rd square of a column
-        if(val0 == '  ' && val1 == 'X' && val2 == 'X') // check if all are 'X'
+        val0 = document.getElementById(y + '_0').innerHTML; // 1st square of a column
+        val1 = document.getElementById(y + '_1').innerHTML; // 2nd square of a column
+        val2 = document.getElementById(y + '_2').innerHTML; // 3rd square of a column
+        if(val0 == '&nbsp;' && val1 == 'X' && val2 == 'X') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById(y + '_0').value = 'O'; // set this square to 'O'
+            document.getElementById(y + '_0').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -301,17 +301,17 @@ function makeOmove()
     //[X][ ][X]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value; // 1st square of a column
-        val1 = document.getElementById(y + '_1').value; // 2nd square of a column
-        val2 = document.getElementById(y + '_2').value; // 3rd square of a column
-        if(val0 == 'X' && val1 == '  ' && val2 == 'X') // check if all are 'X'
+        val0 = document.getElementById(y + '_0').innerHTML; // 1st square of a column
+        val1 = document.getElementById(y + '_1').innerHTML; // 2nd square of a column
+        val2 = document.getElementById(y + '_2').innerHTML; // 3rd square of a column
+        if(val0 == 'X' && val1 == '&nbsp;' && val2 == 'X') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById(y + '_1').value = 'O'; // set this square to 'O'
+            document.getElementById(y + '_1').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -319,17 +319,17 @@ function makeOmove()
     //[X][X][ ]
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById(y + '_0').value; // 1st square of a column
-        val1 = document.getElementById(y + '_1').value; // 2nd square of a column
-        val2 = document.getElementById(y + '_2').value; // 3rd square of a column
-        if(val0 == 'X' && val1 == 'X' && val2 == '  ') // check if all are 'X'
+        val0 = document.getElementById(y + '_0').innerHTML; // 1st square of a column
+        val1 = document.getElementById(y + '_1').innerHTML; // 2nd square of a column
+        val2 = document.getElementById(y + '_2').innerHTML; // 3rd square of a column
+        if(val0 == 'X' && val1 == 'X' && val2 == '&nbsp;') // check if all are 'X'
         {
             numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
-            document.getElementById(y + '_2').value = 'O'; // set this square to 'O'
+            document.getElementById(y + '_2').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
     }
@@ -338,17 +338,17 @@ function makeOmove()
     // [ ][-][-]
     // [-][X][-]
     // [-][-][X]
-    val0 = document.getElementById('0_0').value; // 1st square ofO a column
-    val1 = document.getElementById('1_1').value; // 2nd square of a column
-    val2 = document.getElementById('2_2').value; // 3rd square of a column
-    if(val0 == '  ' && val1 == 'X' && val2 == 'X') // check if all are 'X'
+    val0 = document.getElementById('0_0').innerHTML; // 1st square ofO a column
+    val1 = document.getElementById('1_1').innerHTML; // 2nd square of a column
+    val2 = document.getElementById('2_2').innerHTML; // 3rd square of a column
+    if(val0 == '&nbsp;' && val1 == 'X' && val2 == 'X') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_0').value = 'O'; // set this square to 'O'
+        document.getElementById('0_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -356,17 +356,17 @@ function makeOmove()
     // [X][-][-]
     // [-][X][-]
     // [-][-][ ]
-    val0 = document.getElementById('0_0').value; // 1st square of a column
-    val1 = document.getElementById('1_1').value; // 2nd square of a column
-    val2 = document.getElementById('2_2').value; // 3rd square of a column
-    if(val0 == 'X' && val1 == 'X' && val2 == '  ') // check if all are 'X'
+    val0 = document.getElementById('0_0').innerHTML; // 1st square of a column
+    val1 = document.getElementById('1_1').innerHTML; // 2nd square of a column
+    val2 = document.getElementById('2_2').innerHTML; // 3rd square of a column
+    if(val0 == 'X' && val1 == 'X' && val2 == '&nbsp;') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_2').value = 'O'; // set this square to 'O'
+        document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -374,17 +374,17 @@ function makeOmove()
     // [-][-][ ]
     // [-][X][-]
     // [X][-][-]
-    val0 = document.getElementById('0_2').value; // 1st square ofO a column
-    val1 = document.getElementById('1_1').value; // 2nd square of a column
-    val2 = document.getElementById('2_0').value; // 3rd square of a column
-    if(val0 == '  ' && val1 == 'X' && val2 == 'X') // check if all are 'X'
+    val0 = document.getElementById('0_2').innerHTML; // 1st square ofO a column
+    val1 = document.getElementById('1_1').innerHTML; // 2nd square of a column
+    val2 = document.getElementById('2_0').innerHTML; // 3rd square of a column
+    if(val0 == '&nbsp;' && val1 == 'X' && val2 == 'X') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_2').value = 'O'; // set this square to 'O'
+        document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -392,17 +392,17 @@ function makeOmove()
     // [-][-][X]
     // [-][X][-]
     // [ ][-][-]
-    val0 = document.getElementById('0_2').value; // 1st square of a column
-    val1 = document.getElementById('1_1').value; // 2nd square of a column
-    val2 = document.getElementById('2_0').value; // 3rd square of a column
-    if(val0 == 'X' && val1 == 'X' && val2 == '  ') // check if all are 'X'
+    val0 = document.getElementById('0_2').innerHTML; // 1st square of a column
+    val1 = document.getElementById('1_1').innerHTML; // 2nd square of a column
+    val2 = document.getElementById('2_0').innerHTML; // 3rd square of a column
+    if(val0 == 'X' && val1 == 'X' && val2 == '&nbsp;') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_0').value = 'O'; // set this square to 'O'
+        document.getElementById('2_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -416,18 +416,18 @@ function makeOmove()
     // [-][-][X]
     // [ ][O][-]
     // [X][-][-]
-    val0 = document.getElementById('1_1').value;
-    val1 = document.getElementById('0_2').value;
-    val2 = document.getElementById('2_0').value;
-    val3 = document.getElementById('0_1').value;
-    if(val0 == 'O' && val1 == 'X' && val2 == 'X' && val3 == '  ')
+    val0 = document.getElementById('1_1').innerHTML;
+    val1 = document.getElementById('0_2').innerHTML;
+    val2 = document.getElementById('2_0').innerHTML;
+    val3 = document.getElementById('0_1').innerHTML;
+    if(val0 == 'O' && val1 == 'X' && val2 == 'X' && val3 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_1').value = 'O'; // set this square to 'O'
+        document.getElementById('0_1').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -435,18 +435,18 @@ function makeOmove()
     // [X][-][-]
     // [-][O][X]
     // [-][-][-]
-    val0 = document.getElementById('0_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('1_2').value;
-    val3 = document.getElementById('0_2').value;
-    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '  ')
+    val0 = document.getElementById('0_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('1_2').innerHTML;
+    val3 = document.getElementById('0_2').innerHTML;
+    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_2').value = 'O'; // set this square to 'O'
+        document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -454,18 +454,18 @@ function makeOmove()
     // [-][-][-]
     // [-][O][X]
     // [X][-][ ]
-    val0 = document.getElementById('2_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('1_2').value;
-    val3 = document.getElementById('2_2').value;
-    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '  ')
+    val0 = document.getElementById('2_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('1_2').innerHTML;
+    val3 = document.getElementById('2_2').innerHTML;
+    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_2').value = 'O'; // set this square to 'O'
+        document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -473,36 +473,36 @@ function makeOmove()
     // [-][-][-]
     // [-][O][X]
     // [-][X][ ]
-    val0 = document.getElementById('2_1').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('1_2').value;
-    val3 = document.getElementById('2_2').value;
-    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '  ')
+    val0 = document.getElementById('2_1').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('1_2').innerHTML;
+    val3 = document.getElementById('2_2').innerHTML;
+    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_2').value = 'O'; // set this square to 'O'
+        document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
     // [-][-][X]
     // [-][O][-]
     // [ ][X][-]
-    val0 = document.getElementById('0_2').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('2_1').value;
-    val3 = document.getElementById('2_0').value;
-    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '  ')
+    val0 = document.getElementById('0_2').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('2_1').innerHTML;
+    val3 = document.getElementById('2_0').innerHTML;
+    if(val0 == 'X' && val1 == 'O' && val2 == 'X' && val3 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('2_0').value = 'O'; // set this square to 'O'
+        document.getElementById('2_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -510,18 +510,18 @@ function makeOmove()
     // [O][-][ ]
     // [-][X][-]
     // [-][-][X]
-    val0 = document.getElementById('0_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('2_2').value;
-    val3 = document.getElementById('0_2').value;
-    if(val0 == 'O' && val1 == 'X' && val2 == 'X' && val3 == '  ')
+    val0 = document.getElementById('0_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('2_2').innerHTML;
+    val3 = document.getElementById('0_2').innerHTML;
+    if(val0 == 'O' && val1 == 'X' && val2 == 'X' && val3 == '&nbsp;')
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('0_2').value = 'O'; // set this square to 'O'
+        document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -534,15 +534,15 @@ function makeOmove()
     //
     ///////////////////////////////////////////////////////////////////////////
 
-    val0 = document.getElementById('1_1').value;
-    if(val0 == '  ') // check if all are 'X'
+    val0 = document.getElementById('1_1').innerHTML;
+    if(val0 == '&nbsp;') // check if all are 'X'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
-        document.getElementById('1_1').value = 'O'; // set this square to 'O'
+        document.getElementById('1_1').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
 
@@ -590,9 +590,9 @@ function checkWin()
     // check 3 columns
     for(var y = 0; y < 3; y++)
     {
-        val0 = document.getElementById('0_'+y).value; // 1st square of a column
-        val1 = document.getElementById('1_'+y).value; // 2nd square of a column
-        val2 = document.getElementById('2_'+y).value; // 3rd square of a column
+        val0 = document.getElementById('0_'+y).innerHTML; // 1st square of a column
+        val1 = document.getElementById('1_'+y).innerHTML; // 2nd square of a column
+        val2 = document.getElementById('2_'+y).innerHTML; // 3rd square of a column
         if(val0 == 'X' && val1 == 'X' && val2 == 'X') // check if all are 'X'
         {
             status.innerHTML = "X WINS!"; // display "X WINS"
@@ -610,9 +610,9 @@ function checkWin()
     // check 3 rows
     for(var x = 0; x < 3; x++)
     {
-        val0 = document.getElementById(x + '_0').value;
-        val1 = document.getElementById(x + '_1').value;
-        val2 = document.getElementById(x + '_2').value;
+        val0 = document.getElementById(x + '_0').innerHTML;
+        val1 = document.getElementById(x + '_1').innerHTML;
+        val2 = document.getElementById(x + '_2').innerHTML;
         if(val0 == 'X' && val1 == 'X' && val2 == 'X')
         {
             status.innerHTML = "X WINS!";
@@ -628,9 +628,9 @@ function checkWin()
     }
 
     // check top left to lower right diagonal
-    val0 = document.getElementById('0_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('2_2').value;
+    val0 = document.getElementById('0_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('2_2').innerHTML;
     if(val0 == 'X' && val1 == 'X' && val2 == 'X')
     {
         status.innerHTML = "X WINS!";
@@ -645,9 +645,9 @@ function checkWin()
     }
 
     // check lower left to top right diagonal
-    val0 = document.getElementById('2_0').value;
-    val1 = document.getElementById('1_1').value;
-    val2 = document.getElementById('0_2').value;
+    val0 = document.getElementById('2_0').innerHTML;
+    val1 = document.getElementById('1_1').innerHTML;
+    val2 = document.getElementById('0_2').innerHTML;
     if(val0 == 'X' && val1 == 'X' && val2 == 'X')
     {
         status.innerHTML = "X WINS!";
@@ -677,7 +677,6 @@ function checkWin()
 
 function newgame()
 {
-   alert("This is new game");
    var status = document.getElementById('status');
 
    numMoves = 0;
@@ -704,8 +703,8 @@ function squareclicked(x,y) // square is a button object
         return;
     }
 
-    // get the current square's value
-    var square = document.getElementById(x+"_"+y).innerHTML; // get the current square's value
+    // get the current square's innerHTML
+    var square = document.getElementById(x+"_"+y).innerHTML; // get the current square's innerHTML
     if(square != 'X' && square != 'O') // check if the current square does not
                                      // have 'X' or 'O'
     {

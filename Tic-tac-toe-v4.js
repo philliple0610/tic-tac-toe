@@ -3,18 +3,6 @@ var xTurn = true;
 var gameOver = false;
 var numMoves = 0;
 
-var grid=new Array(3);
-grid[0]=new Array(3);
-grid[1]=new Array(3);
-grid[2]=new Array(3);
-
-
-for (var i=0; i<=2; i++) {
-  for (var j=0; j<=2; j++) {
-    grid[i][j]=0;
-  }
-}
-
 
 function makeOmove()
 {
@@ -564,7 +552,6 @@ function makeOmove()
     // DUMB MOVES
     //
     ///////////////////////////////////////////////////////////////////////////
-//alert("This is a dumb move");
     // iterate column
     for(var y = 0; y < 3; y++)
     {
@@ -572,13 +559,10 @@ function makeOmove()
         // iterate rows
         for(var x = 0; x < 3; x++)
         {
-            //var square = document.getElementById(x + '_' + y).value;
-            var value = grid[x][y];
-            //alert("dumb 1 x: " + x + " - y: " + y + "square: '" + value + "'");
+            var square = document.getElementById(x + '_' + y).innerHTML;
 
-            if(value == 0)
+            if(square == '&nbsp;')
             {
-                //alert("dumb. x: " + x + " - y: " + y );
                 numMoves = numMoves + 1; // add 1 to numMoves
                                      // ex: if numMoves = 5 then after this execution
                                      // numMoves will become 6
@@ -586,7 +570,7 @@ function makeOmove()
                 status.innerHTML = "X\'s turn"; // displaying O's turn
                 document.getElementById(x + '_' + y).style.color="#E2C290";
                 document.getElementById(x + '_' + y).innerHTML = 'O'; // set this square to 'O'
-                grid[x][y]=2;
+
                 return true; // return true to the caller
             }
         }
@@ -706,49 +690,39 @@ function newgame()
    {
       for(var y = 0; y < 3; y++)
       {
-         document.getElementById(x + '_' + y).value = '  ';
+         document.getElementById(x + '_' + y).innerHTML = '&nbsp;';
       }
    }
 }
 
-function squareclicked(x,y) // square is a button object
 // squareclicked is a function that is called whenever a button is clicked.
+function squareclicked(x,y) // square is a button object
 {
-  //alert("This is testing. x: " + x + " - y: " + y );
     if(gameOver) //  check global varible if the game is over
     {
         alert("The game is already over.");
         return;
     }
 
-    var status = document.getElementById('status');  // get the status object
-    //var value = square.value; // get the current square's value
-    //var value = document.getElementById(x+"_"+y).innerHTML; // get the current square's value
-    var value = grid[x][y];
-    if(value != '1' && value != '2') // check if the current square does not
+    // get the current square's value
+    var square = document.getElementById(x+"_"+y).innerHTML; // get the current square's value
+    if(square != 'X' && square != 'O') // check if the current square does not
                                      // have 'X' or 'O'
     {
         numMoves = numMoves + 1; // add 1 to numMoves
                                 // ex: if numMoves = 5 then after this execution
                                 // numMoves will become 6
 
-        // main ////////////////////////
-        //square.value = 'X'; // set this square to 'X'
-        //alert("Set x: " + x + " - y: " + y + "to X");
-        //document.getElementById("cell_"+x+"_"+y).style.color="#3F88C5";
-        //document.getElementById("cell_"+x+"_"+y).innerHTML="X";
+        // set this square to 'X'
         document.getElementById(x+"_"+y).style.color="#3F88C5";
         document.getElementById(x+"_"+y).innerHTML ='X';
-        grid[x][y]=1;
-        //currentPlayer=2;
-        xTurn = false;
-//alert("done set x: " + x + " - y: " + y + "to X");
-        //checkWin(); // call checkWin to see if X wins or tie
+
+        checkWin(); // call checkWin to see if X wins or tie
 
         // computer will make the move for 'O'
         makeOmove();
 
-        //checkWin(); // call checkWin to see if O wins or tie
+        checkWin(); // call checkWin to see if O wins or tie
     }
     else
     {

@@ -2,7 +2,8 @@
 var xTurn = true;
 var gameOver = false;
 var numMoves = 0;
-
+var xColor = "#0066ff"
+var oColor = "#ff8533"
 
 function makeOmove()
 {
@@ -37,7 +38,7 @@ function makeOmove()
             numMoves++;
             xTurn = true;
             status.innerHTML = "X\'s turn";
-
+            document.getElementById('0_' + y).style.color=oColor;
             document.getElementById('0_' + y).innerHTML = 'O'; // set this square to 'O'
             return;
         }
@@ -57,6 +58,7 @@ function makeOmove()
             numMoves++;
             xTurn = true;
             status.innerHTML = "X\'s turn";
+            document.getElementById('1_' + y).style.color=oColor;
             document.getElementById('1_' + y).innerHTML = 'O'; // set this square to 'O'
             return;
         }
@@ -75,6 +77,7 @@ function makeOmove()
             numMoves++;
             xTurn = true;
             status.innerHTML = "X\'s turn";
+            document.getElementById('2_' + y).style.color=oColor;
             document.getElementById('2_' + y).innerHTML = 'O'; // set this square to 'O'
             return;
         }
@@ -93,6 +96,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById(y + '_0').style.color=oColor;
             document.getElementById(y + '_0').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -112,6 +116,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById(y + '_1').style.color=oColor;
             document.getElementById(y + '_1').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -130,6 +135,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById(y + '_2').style.color=oColor;
             document.getElementById(y + '_2').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -150,6 +156,7 @@ function makeOmove()
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_2').style.color=oColor;
         document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
         }
@@ -168,6 +175,7 @@ function makeOmove()
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_0').style.color=oColor;
         document.getElementById('2_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -188,6 +196,7 @@ function makeOmove()
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_0').style.color=oColor;
         document.getElementById('0_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
      }
@@ -206,6 +215,7 @@ function makeOmove()
                                  // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_2').style.color=oColor;
         document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -234,6 +244,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById('0_' + y).style.color=oColor;
             document.getElementById('0_' + y).innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -254,6 +265,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById('1_' + y).style.color=oColor;
             document.getElementById('1_' + y).innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -274,6 +286,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById('2_' + y).style.color=oColor;
             document.getElementById('2_' + y).innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -293,6 +306,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById(y + '_0').style.color=oColor;
             document.getElementById(y + '_0').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -311,6 +325,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById(y + '_1').style.color=oColor;
             document.getElementById(y + '_1').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -329,6 +344,7 @@ function makeOmove()
                                      // numMoves will become 6
             xTurn = true; // switching to 'X's turn
             status.innerHTML = "X\'s turn"; // displaying O's turn
+            document.getElementById(y + '_2').style.color=oColor;
             document.getElementById(y + '_2').innerHTML = 'O'; // set this square to 'O'
             return true; // return true to the caller
         }
@@ -348,6 +364,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_0').style.color=oColor;
         document.getElementById('0_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -366,6 +383,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_2').style.color=oColor;
         document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -384,6 +402,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_2').style.color=oColor;
         document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -402,6 +421,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_0').style.color=oColor;
         document.getElementById('2_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -427,6 +447,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_1').style.color=oColor;
         document.getElementById('0_1').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -446,6 +467,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_2').style.color=oColor;
         document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -465,6 +487,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_2').style.color=oColor;
         document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -484,6 +507,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_2').style.color=oColor;
         document.getElementById('2_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -502,6 +526,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('2_0').style.color=oColor;
         document.getElementById('2_0').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -521,6 +546,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('0_2').style.color=oColor;
         document.getElementById('0_2').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -542,6 +568,7 @@ function makeOmove()
                                      // numMoves will become 6
         xTurn = true; // switching to 'X's turn
         status.innerHTML = "X\'s turn"; // displaying O's turn
+        document.getElementById('1_1').style.color=oColor;
         document.getElementById('1_1').innerHTML = 'O'; // set this square to 'O'
         return true; // return true to the caller
     }
@@ -568,7 +595,7 @@ function makeOmove()
                                      // numMoves will become 6
                 xTurn = true; // switching to 'X's turn
                 status.innerHTML = "X\'s turn"; // displaying O's turn
-                document.getElementById(x + '_' + y).style.color="#E2C290";
+                document.getElementById(x + '_' + y).style.color=oColor;
                 document.getElementById(x + '_' + y).innerHTML = 'O'; // set this square to 'O'
 
                 return true; // return true to the caller
@@ -713,7 +740,7 @@ function squareclicked(x,y) // square is a button object
                                 // numMoves will become 6
 
         // set this square to 'X'
-        document.getElementById(x+"_"+y).style.color="#3F88C5";
+        document.getElementById(x+"_"+y).style.color=xColor;
         document.getElementById(x+"_"+y).innerHTML ='X';
 
         checkWin(); // call checkWin to see if X wins or tie
